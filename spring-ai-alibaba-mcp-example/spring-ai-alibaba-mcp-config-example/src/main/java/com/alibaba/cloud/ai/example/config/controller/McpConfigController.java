@@ -19,6 +19,7 @@ package com.alibaba.cloud.ai.example.config.controller;
 import com.alibaba.cloud.ai.mcp.router.config.McpRouterProperties;
 import com.alibaba.cloud.ai.mcp.router.core.discovery.McpServiceDiscovery;
 import com.alibaba.cloud.ai.mcp.router.model.McpServerInfo;
+import java.util.Collections;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -51,7 +52,8 @@ public class McpConfigController {
         StringJoiner result = new StringJoiner("\n");
         result.add("=== MCP服务配置信息 ===");
 
-        List<McpServerInfo> services = properties.getServices();
+        // List<McpServerInfo> services = properties.getServices();
+        List<McpServerInfo> services = Collections.emptyList();
 
         if (services.isEmpty()) {
             return result.add("未找到配置的服务信息").toString();
