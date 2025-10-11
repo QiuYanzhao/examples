@@ -17,7 +17,7 @@
 package com.alibaba.cloud.ai.example.config;
 
 import com.alibaba.cloud.ai.mcp.router.core.discovery.McpServiceDiscovery;
-import com.alibaba.cloud.ai.mcp.router.core.discovery.McpServiceDiscoveryFactory;
+// import com.alibaba.cloud.ai.mcp.router.core.discovery.McpServiceDiscoveryFactory;
 import com.alibaba.cloud.ai.mcp.router.model.McpServerInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,24 +41,24 @@ public class McpMultiConfigApplication {
 		SpringApplication.run(McpMultiConfigApplication.class, args);
 	}
 
-	@Bean
-	public CommandLineRunner demo(McpServiceDiscovery mcpServiceDiscovery, McpServiceDiscoveryFactory factory) {
-		return args -> {
-			log.info("=== MCP 多源服务发现演示 ===");
-
-			// 显示已注册的服务发现类型
-			log.info("已注册的服务发现类型: {}", factory.getRegisteredTypes());
-			log.info("注册的服务发现实现数量: {}", factory.size());
-
-			// 测试服务查找
-			testServiceDiscovery(mcpServiceDiscovery, "weather-service");
-			testServiceDiscovery(mcpServiceDiscovery, "dashscope-chat");
-			testServiceDiscovery(mcpServiceDiscovery, "search-service");
-			testServiceDiscovery(mcpServiceDiscovery, "non-existent-service");
-
-			log.info("=== 演示完成 ===");
-		};
-	}
+//	@Bean
+//	public CommandLineRunner demo(McpServiceDiscovery mcpServiceDiscovery, McpServiceDiscoveryFactory factory) {
+//		return args -> {
+//			log.info("=== MCP 多源服务发现演示 ===");
+//
+//			// 显示已注册的服务发现类型
+//			log.info("已注册的服务发现类型: {}", factory.getRegisteredTypes());
+//			log.info("注册的服务发现实现数量: {}", factory.size());
+//
+//			// 测试服务查找
+//			testServiceDiscovery(mcpServiceDiscovery, "weather-service");
+//			testServiceDiscovery(mcpServiceDiscovery, "dashscope-chat");
+//			testServiceDiscovery(mcpServiceDiscovery, "search-service");
+//			testServiceDiscovery(mcpServiceDiscovery, "non-existent-service");
+//
+//			log.info("=== 演示完成 ===");
+//		};
+//	}
 
 	private void testServiceDiscovery(McpServiceDiscovery discovery, String serviceName) {
 		log.info("查找服务: {}", serviceName);
