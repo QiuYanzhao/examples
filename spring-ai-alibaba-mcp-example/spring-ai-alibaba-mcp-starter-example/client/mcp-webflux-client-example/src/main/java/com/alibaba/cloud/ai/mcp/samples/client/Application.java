@@ -39,7 +39,7 @@ public class Application {
 
 	private String userInput2 = "将 user 转为大写";
 
-	@Bean
+	// @Bean
 	public CommandLineRunner predefinedQuestions(ChatClient.Builder chatClientBuilder, ToolCallbackProvider tools,
 			ConfigurableApplicationContext context) {
 

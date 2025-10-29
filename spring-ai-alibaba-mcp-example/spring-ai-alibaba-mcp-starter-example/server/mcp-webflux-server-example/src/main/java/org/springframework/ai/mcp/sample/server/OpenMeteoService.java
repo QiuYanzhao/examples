@@ -25,6 +25,8 @@ import java.time.format.DateTimeFormatter;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.ai.tool.annotation.ToolParam;
 import org.springframework.stereotype.Service;
@@ -37,6 +39,8 @@ import org.springframework.web.client.RestClientException;
  */
 @Service
 public class OpenMeteoService {
+    private static final Logger log = LoggerFactory.getLogger(OpenMeteoService.class);
+
 
     // OpenMeteo免费天气API基础URL
     private static final String BASE_URL = "https://api.open-meteo.com/v1";
@@ -146,12 +150,14 @@ public class OpenMeteoService {
      */
     @Tool(description = "获取指定经纬度的天气预报")
     public String getWeatherForecastByLocation(double latitude, double longitude) {
+        log.info("获取天气 forecast 信息, latitude: {}, longitude: {}", latitude, longitude);
         // 获取天气数据（当前和未来7天）
         var weatherData = restClient.get()
                 .uri("/forecast?latitude={latitude}&longitude={longitude}&current=temperature_2m,apparent_temperature,relative_humidity_2m,precipitation,weather_code,wind_speed_10m,wind_direction_10m&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,weather_code,wind_speed_10m_max,wind_direction_10m_dominant&timezone=auto&forecast_days=7",
                         latitude, longitude)
                 .retrieve()
                 .body(WeatherData.class);
+        log.info("获取到的天气数据: {}", weatherData);
 
         // 拼接天气信息
         StringBuilder weatherInfo = new StringBuilder();
