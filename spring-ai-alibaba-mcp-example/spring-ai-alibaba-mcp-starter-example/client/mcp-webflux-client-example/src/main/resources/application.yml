@@ -9,8 +9,8 @@ server:
 spring:
   application:
     name: mcp
-  # main:
-    #web-application-type: none
+  main:
+    web-application-type: reactive
   ai:
     dashscope:
       api-key: ${AI_DASHSCOPE_API_KEY}
