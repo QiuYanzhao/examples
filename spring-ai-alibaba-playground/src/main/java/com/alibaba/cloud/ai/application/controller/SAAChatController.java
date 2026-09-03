@@ -1,5 +1,5 @@
 /*
- * Copyright 2024-2025 the original author or authors.
+ * Copyright 2024-2026 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ package com.alibaba.cloud.ai.application.controller;
 
 import com.alibaba.cloud.ai.application.service.SAABaseService;
 import com.alibaba.cloud.ai.application.service.SAAChatService;
-import com.alibaba.cloud.ai.dashscope.api.DashScopeApi;
+import com.alibaba.cloud.ai.dashscope.spec.DashScopeModel;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletResponse;
@@ -83,7 +83,7 @@ public class SAAChatController {
 			}
 		}
 		else {
-			model = DashScopeApi.ChatModel.QWEN_PLUS.getValue();
+			model = DashScopeModel.ChatModel.QWEN_PLUS.getValue();
 		}
 
 		response.setCharacterEncoding("UTF-8");
@@ -110,7 +110,7 @@ public class SAAChatController {
 			}
 		}
 		else {
-			model = DashScopeApi.ChatModel.QWEN_PLUS.getValue();
+			model = DashScopeModel.ChatModel.QWEN_PLUS.getValue();
 		}
 
 		response.setCharacterEncoding("UTF-8");

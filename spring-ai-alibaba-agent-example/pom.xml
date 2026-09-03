@@ -37,7 +37,12 @@
 
 	<modules>
 		<module>playground-flight-booking</module>
-        <module>react-agent-example</module>
+    <module>react-agent-example</module>
+		<module>rag-agent-example</module>
+		<module>sql-agent-example</module>
+		<module>adk-samples-llm-auditor</module>
+		<module>voice-agent-dashscope-sdk-example</module>
+		<module>voice-agent-example</module>
 	</modules>
 
 	<build>

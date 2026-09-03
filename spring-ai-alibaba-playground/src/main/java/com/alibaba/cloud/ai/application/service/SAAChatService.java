@@ -1,5 +1,5 @@
 /*
- * Copyright 2024-2025 the original author or authors.
+ * Copyright 2024-2026 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -70,7 +70,7 @@ public class SAAChatService {
 			DashScopeApi dashscopeApi,
 			SimpleLoggerAdvisor simpleLoggerAdvisor,
 			MessageChatMemoryAdvisor messageChatMemoryAdvisor,
-			@Qualifier("dashscopeChatModel") ChatModel chatModel,
+			@Qualifier("dashScopeChatModel") ChatModel chatModel,
 			@Qualifier("systemPromptTemplate") PromptTemplate systemPromptTemplate,
 			@Qualifier("deepThinkPromptTemplate") PromptTemplate deepThinkPromptTemplate
 	) {

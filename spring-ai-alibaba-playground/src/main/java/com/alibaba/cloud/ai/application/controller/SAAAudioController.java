@@ -1,5 +1,5 @@
 /*
- * Copyright 2024-2025 the original author or authors.
+ * Copyright 2024-2026 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -69,18 +69,11 @@ public class SAAAudioController {
 			@Validated @RequestParam("prompt") String prompt
 	) {
 
-		return Result.success("not implemented yet".getBytes());
+		if (prompt.isEmpty()) {
+			return Result.failed("No audio text provided");
+		}
 
-		// byte[] audioData = audioService.text2audio(prompt);
-
-		// test to verify that the audio data is empty
-		// try (FileOutputStream fos = new FileOutputStream("tmp/audio/test-audio.wav")) {
-		// 	fos.write(audioData);
-		// } catch (IOException e) {
-		// 	return Result.failed("Test save audio file: " + e.getMessage());
-		// }
-		//
-		// return Result.success(audioData);
+		return Result.success(audioService.text2audio(prompt));
 	}
 
 }

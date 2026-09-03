@@ -16,9 +16,11 @@
 
 # spring.main.web-application-type=none
 
-# NOTE: You must disable the banner and the console logging 
+# NOTE: You must disable the banner and the console logging
 # to allow the STDIO transport to work !!!
 # Config reference: https://docs.spring.io/spring-ai/reference/api/mcp/mcp-server-boot-starter-docs.html#_webflux_server_configuration
+server:
+  port: 8080
 spring:
   main:
     banner-mode: off
@@ -26,10 +28,10 @@ spring:
     mcp:
       server:
         name: my-weather-server
-        version: 0.0.1
         type: ASYNC  # Recommended for reactive applications
         # 配置 用于 Web 传输的自定义 SSE 端点路径，默认值为 /sse
         # 下面的最终路径为 ip:port/sse/mcp
+        protocol: sse
         sse-endpoint: /sse
         # 用于 Web 传输的自定义 SSE 消息端点路径，供客户端发送消息使用
         sse-message-endpoint: /mcp
@@ -39,4 +41,3 @@ spring:
           prompt: true # 开启提示功能
           completion: true # 开启补全调用功能
 
-# logging.pattern.console=

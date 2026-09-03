@@ -1,14 +1,9 @@
 server:
   port: 8888
-  servlet:
-    encoding:
-      charset: UTF-8
-      enabled: true
-      force: true
 
 spring:
   application:
-    name: mcp
+    name: mcp-webflux-client-example
   main:
     web-application-type: reactive
   ai:
@@ -16,8 +11,6 @@ spring:
       api-key: ${AI_DASHSCOPE_API_KEY}
     mcp:
       client:
-        toolcallback:
-          enabled: true
         sse:
           connections:
             server1:

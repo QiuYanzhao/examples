@@ -16,29 +16,17 @@
 
         <dependency>
             <groupId>org.springframework.ai</groupId>
-            <artifactId>spring-ai-autoconfigure-model-openai</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.ai</groupId>
-            <artifactId>spring-ai-autoconfigure-model-chat-client</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba.cloud.ai</groupId>
-            <artifactId>spring-ai-alibaba-mcp-common</artifactId>
-            <version>${spring-ai-extensions.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.ai</groupId>
             <artifactId>spring-ai-starter-mcp-client-webflux</artifactId>
         </dependency>
 
         <dependency>
             <groupId>com.alibaba.cloud.ai</groupId>
+            <artifactId>spring-ai-alibaba-starter-dashscope</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.cloud.ai</groupId>
             <artifactId>spring-ai-alibaba-starter-mcp-distributed</artifactId>
-            <version>${spring-ai-extensions.version}</version>
         </dependency>
 
     </dependencies>
